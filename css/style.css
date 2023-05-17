@@ -14,8 +14,8 @@
 .container_img{
     width: 800px;
     height: 500px;
-    position: relative;
     display: none;
+    position: relative;
 }
 
 img{
@@ -38,6 +38,7 @@ img{
     cursor: pointer;
     position: absolute;
     left: 50%;
+    top: 20%;
     transform: translate(-50%, -50%);
 }
 
@@ -53,7 +54,7 @@ img{
     cursor: pointer;
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 20%;
     transform: translate(-50%, 50%)
 }
 
@@ -64,8 +65,6 @@ img{
 .container_img.active{
     display: block;
 }
-
-
 
 .text{
     color: white;

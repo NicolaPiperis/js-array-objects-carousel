@@ -40,16 +40,12 @@ images.forEach((element, index) => {
     let card = 
     `<div class="container_img">
 
-    <div id="next" class="container_icon_up"><i class="fa-solid fa-arrow-up" style="color: #1e3050;"></i></div>
-    
-         <img src="${image}">  
+        <img src="${image}">  
 
-    <div id="prev" class="container_icon_down"><i class="fa-solid fa-arrow-down"></i></div>
-
-    <div class="text">
-        <h2>${title}</h2>
-        <p>${text}</p>
-    </div>
+        <div class="text">
+            <h2>${title}</h2>
+            <p>${text}</p>
+        </div>
 
     </div>`
 
@@ -76,12 +72,16 @@ let downside = document.getElementById("prev");
 topside.addEventListener("click",
     function(){
         
-         if(imagePosition < images.length ) {
+        if(imagePosition < (images.length - 1) ) {
             containerImg[imagePosition].classList.remove("active");
             
-             imagePosition++
-             containerImg[imagePosition].classList.add("active");
-            
+            imagePosition++
+            containerImg[imagePosition].classList.add("active");    
+        }
+        else if(imagePosition === (imagePosition - 1)){
+            containerImg[imagePosition].classList.remove("active");
+            activeImage = 0;
+            containerImg[imagePosition].classList.add("active");
         }
     }
 )
