@@ -15,6 +15,7 @@
     width: 800px;
     height: 500px;
     position: relative;
+    display: none;
 }
 
 img{
@@ -60,13 +61,11 @@ img{
    font-size: 20px;
 }
 
-.active{
+.container_img.active{
     display: block;
 }
 
-.hidden{
-    display: none;
-}
+
 
 .text{
     color: white;

@@ -38,7 +38,7 @@ images.forEach((element, index) => {
 
     // CREAZIONE ELEMENTO HTML DEL CONTENUTO PRINCIPALE
     let card = 
-    `<div class="container_img hidden">
+    `<div class="container_img">
 
     <div id="next" class="container_icon_up"><i class="fa-solid fa-arrow-up" style="color: #1e3050;"></i></div>
     
@@ -64,29 +64,28 @@ const containerImg = document.querySelectorAll(".container_img");
 let imagePosition = 0;
 
 // Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
-for(let i = 0; i < images.length; i++) {   
-    
-    let containerImgIesimo = containerImg[i];
-    if(i === imagePosition) {
-        containerImgIesimo.classList.remove("hidden");
-        containerImgIesimo.classList.add("active");
-    } 
+if(0 === imagePosition) {
+    containerImg[imagePosition].classList.add("active");
 }
+
 // Al click dell’utente sulle frecce verso sopra e sotto, l’immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 // ARROWS DICHIARAZIONI
 let topside = document.getElementById("next");
 let downside = document.getElementById("prev");
-console.log(next, prev);
 
 topside.addEventListener("click",
     function(){
-        if(imagePosition < (images.length - 1))
-        containerImg[imagePosition].classList.remove("hidden");
         
-        imagePosition++
-        containerImg[imagePosition].classList.add("active");
+         if(imagePosition < images.length ) {
+            containerImg[imagePosition].classList.remove("active");
+            
+             imagePosition++
+             containerImg[imagePosition].classList.add("active");
+            
+        }
     }
 )
+
 // Milestone 2:
 // Aggiungere il **ciclo infinito** del carosello.
 // Ovvero se l’immagine attiva è la prima e l’utente clicca la freccia verso sopra, l’immagine che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sotto.
