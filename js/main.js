@@ -78,17 +78,43 @@ topside.addEventListener("click",
             imagePosition++
             containerImg[imagePosition].classList.add("active");    
         }
-        else if(imagePosition === (imagePosition - 1)){
+
+        // Aggiungere il **ciclo infinito** del carosello.
+        // Ovvero se l’immagine attiva è la prima e l’utente clicca la freccia verso sopra, l’immagine che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sotto.
+        else if(imagePosition === (images.length - 1)){
             containerImg[imagePosition].classList.remove("active");
-            activeImage = 0;
+            imagePosition = 0;
             containerImg[imagePosition].classList.add("active");
         }
     }
 )
 
-// Milestone 2:
-// Aggiungere il **ciclo infinito** del carosello.
-// Ovvero se l’immagine attiva è la prima e l’utente clicca la freccia verso sopra, l’immagine che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sotto.
+downside.addEventListener("click",
+    function(){
+        
+        if(imagePosition > 0 ) {
+            containerImg[imagePosition].classList.remove("active");
+            
+            imagePosition--
+            containerImg[imagePosition].classList.add("active");    
+        }
+
+        // Aggiungere il **ciclo infinito** del carosello.
+        // Ovvero se l’immagine attiva è la prima e l’utente clicca la freccia verso sopra, l’immagine che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sotto.
+        else if(imagePosition === 0){
+            containerImg[imagePosition].classList.remove("active");
+            imagePosition = (images.length - 1);
+            containerImg[imagePosition].classList.add("active");
+        }
+    }
+)
+
+
+
+
+
+
+
 
 
 
